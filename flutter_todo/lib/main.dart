@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
-            context: context, 
+            context: context,
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Text("Add Todolist"),
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                     setState(() {
                       todos.add(input);
                     });
-                  }, 
+                  },
                   child: Text("Add"))
                 ]
               );
@@ -65,9 +65,26 @@ class _MyAppState extends State<MyApp> {
       body: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (BuildContext context, int index) {
-          return Dismissible(key: Key(todos[index]), child: Card(
-            child: ListTile(title: Text(todos[index]),
-            )
+          return Dismissible(
+            key: Key(todos[index]),
+            child: Card(
+              elevation: 4,
+              margin: EdgeInsets.all(8),
+              shape: RoundedRectangleBorder(borderRadius:
+              BorderRadius.circular(8)
+              ),
+              child: ListTile(
+                title: Text(todos[index]),
+                trailing: IconButton(icon: Icon(
+                  Icons.delete,
+                  color: Colors.red
+                ),
+                onPressed: () {
+                  setState(() {
+                    todos.removeAt(index);
+                  });
+                }),
+              )
           ));
       }),
     );
