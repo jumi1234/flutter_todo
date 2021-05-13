@@ -19,14 +19,7 @@ class _MyAppState extends State<MyApp> {
   List todos = List();
   String input = "";
 
-  @override
-  void initState() {
-    super.initState();
-    todos.add("Item1");
-    todos.add("Item2");
-    todos.add("Item3");
-    todos.add("Item4");
-  }
+
 
   @override
   Widget build(BuildContext context) {
